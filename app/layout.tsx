@@ -3,10 +3,21 @@ import './globals.css';
 import './alignment.css';
 import './fluid-theme.css';
 
+function getMetadataBase() {
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (!configuredUrl) return new URL('http://localhost:3000');
+
+  try {
+    return new URL(configuredUrl.startsWith('http') ? configuredUrl : `https://${configuredUrl}`);
+  } catch {
+    return new URL('http://localhost:3000');
+  }
+}
+
 export const metadata: Metadata = {
   title: 'Learnflow — Your Machine Learning Path',
   description: 'Learn machine learning step by step with concise lessons, practical exercises, and progress tracking.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+  metadataBase: getMetadataBase(),
   openGraph: {
     title: 'Learnflow — Your Machine Learning Path',
     description: 'Machine learning, step by step. Learn with concise lessons, practical exercises, and saved progress.',
