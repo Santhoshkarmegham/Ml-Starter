@@ -1,0 +1,31 @@
+export const moduleTasks: Record<string, { title: string; brief: string; deliverables: string[]; starter: string }> = {
+  data:{title:'Clean and explore a messy dataset',brief:'Load a small CSV, inspect its quality, clean missing and categorical values, then explain three patterns with charts.',deliverables:['Clean DataFrame','Two Matplotlib or Seaborn charts','Feature matrix X and target y','Five-sentence findings note'],starter:'df = pd.read_csv("data.csv")\n# inspect → clean → visualise → separate X and y'},
+  stats:{title:'Explain a surprising pattern',brief:'Choose two numeric variables, describe their distributions, test their correlation and investigate their outliers.',deliverables:['Summary statistics table','Distribution plots','Correlation interpretation','One hypothesis test with a plain-English conclusion'],starter:'df[["feature_a", "feature_b"]].describe()\n# State H0 and H1 before testing'},
+  core:{title:'Build a trustworthy baseline',brief:'Frame one prediction problem, split the data correctly and compare an underfit, reasonable and overfit model.',deliverables:['Problem statement','Train/test split','Cross-validation scores','Short bias–variance diagnosis'],starter:'X_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=.2, random_state=42\n)'},
+  algorithms:{title:'Algorithm comparison lab',brief:'Train linear/logistic, tree, forest, KNN, SVM and boosting models on the same split and explain which one wins.',deliverables:['Six fitted models','Comparable validation table','Runtime notes','Justified model choice'],starter:'models = {\n  "tree": DecisionTreeClassifier(),\n  "forest": RandomForestClassifier()\n}'},
+  evaluation:{title:'Choose the metric that matters',brief:'Evaluate one regression or classification model and explain why the chosen metric matches the real-world cost of mistakes.',deliverables:['Baseline metric','Primary metric rationale','Diagnostic plot or confusion matrix','Error analysis of five examples'],starter:'print(classification_report(y_test, predictions))\n# Inspect the mistakes, not only the score'},
+  pipelines:{title:'Leak-proof training pipeline',brief:'Create numeric and categorical preprocessing with ColumnTransformer, connect a model, then tune it with cross-validation.',deliverables:['ColumnTransformer','Complete Pipeline','Search space','Best parameters and held-out test score'],starter:'pipeline = Pipeline([\n  ("preprocess", preprocessor),\n  ("model", model),\n])'},
+  unsupervised:{title:'Discover useful customer segments',brief:'Scale an unlabeled dataset, compare cluster counts, visualise a PCA projection and describe every cluster.',deliverables:['Scaled features','K selection evidence','PCA plot','Plain-English cluster profiles'],starter:'X_scaled = StandardScaler().fit_transform(X)\nlabels = KMeans(n_clusters=3).fit_predict(X_scaled)'},
+  deep:{title:'Train a small neural network',brief:'Build a dense or convolutional network, track training and validation loss, and diagnose whether it overfits.',deliverables:['Model architecture','Training curves','Validation metric','One improvement experiment'],starter:'model.compile(optimizer="adam", loss="...", metrics=["accuracy"])\nhistory = model.fit(...)'},
+  genai:{title:'Build a cited mini-RAG assistant',brief:'Chunk a small document set, create embeddings, retrieve relevant passages and answer with source references.',deliverables:['Chunking strategy','Vector search','Grounded prompt','Five-question evaluation set'],starter:'chunks = split_documents(docs)\nvectors = embed(chunks)\ncontext = retrieve(query, vectors)'},
+  mlops:{title:'Ship and monitor a model',brief:'Expose a trained model through FastAPI, add a small Streamlit client, containerise it and test it in CI.',deliverables:['Prediction API','Streamlit interface','Dockerfile','GitHub Actions workflow','Monitoring checklist'],starter:'@app.post("/predict")\ndef predict(features: Features):\n    return {"prediction": model.predict([features.values])[0]}'},
+};
+
+export const capstone = {
+  title:'Customer churn: end-to-end ML portfolio project',
+  brief:'Use the attached 300-row customer dataset to predict churn and build one portfolio project from data cleaning through deployment. The workbook includes intentional missing values, a data dictionary and a checklist you can update as you work.',
+  deliverables:['Public problem statement','Reproducible notebook or training package','Saved pipeline and evaluation report','Working API or app','README with architecture and limitations','Three-minute interview explanation'],
+};
+
+export const finalProjectStages = [
+  {number:1,title:'Data handling',task:'Audit data types, duplicates and missing values. Clean categories, create two charts, then separate features X from targets y.'},
+  {number:2,title:'Statistics for ML',task:'Explain centre and spread, distributions, correlations and outliers. Write and test one clear hypothesis.'},
+  {number:3,title:'Core machine learning',task:'Frame churn as classification, make a stratified train/test split and diagnose bias versus variance with cross-validation.'},
+  {number:4,title:'ML algorithms',task:'Compare Logistic Regression, Decision Tree, Random Forest, KNN, SVM and gradient boosting under the same validation design.'},
+  {number:5,title:'Model evaluation',task:'Report accuracy, precision, recall, F1, confusion matrix and ROC-AUC. Select a threshold based on the cost of errors.'},
+  {number:6,title:'Features and pipelines',task:'Put imputation, encoding, scaling and selection inside ColumnTransformer and Pipeline, then tune without leakage.'},
+  {number:7,title:'Unsupervised ML',task:'Cluster customers without the churn label, compare k values and use PCA to visualise and explain the segments.'},
+  {number:8,title:'Deep learning',task:'Train a small neural network, inspect its learning curves and compare it honestly with your strongest traditional model.'},
+  {number:9,title:'NLP + GenAI',task:'Use the notes field for an embedding experiment and design a small, grounded RAG assistant for a retention team.'},
+  {number:10,title:'MLOps',task:'Serve the selected model with FastAPI, add a Streamlit interface, Dockerise it, track runs and outline CI plus monitoring.'},
+];

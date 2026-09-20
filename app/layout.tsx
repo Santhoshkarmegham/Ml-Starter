@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './alignment.css';
+import './fluid-theme.css';
 
 export const metadata: Metadata = {
   title: 'Learnflow — Your Machine Learning Path',
